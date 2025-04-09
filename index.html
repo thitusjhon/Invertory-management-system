@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Inventory Ni Thitus</h1>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="table-section">
+      <div class="table-header">
+        <input type="text" id="searchBar" placeholder="Search product..." />
+        <button id="addBtn">Add Product</button>
+      </div>
+
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th onclick="sortTableByColumn(0)">Name <span class="sort-icon" data-col="0">↕</span></th>
+            <th onclick="sortTableByColumn(1)">Details <span class="sort-icon" data-col="1">↕</span></th>
+            <th onclick="sortTableByColumn(2)">Quantity <span class="sort-icon" data-col="2">↕</span></th>
+            <th onclick="sortTableByColumn(3)">Price <span class="sort-icon" data-col="3">↕</span></th>
+            <th onclick="sortTableByColumn(4)">Date <span class="sort-icon" data-col="4">↕</span></th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dynamic rows go here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeBtn">&times;</span>
+      <h2 id="modalTitle">Add/Edit Product</h2>
+      <form id="editForm">
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" required />
+
+        <label for="editDetails">Details:</label>
+        <input type="text" id="editDetails" required />
+
+        <label for="editQuantity">Quantity:</label>
+        <input type="number" id="editQuantity" min="1" required />
+
+        <label for="editPrice">Price (₱):</label>
+        <input type="number" id="editPrice" min="0" step="0.01" required />
+
+        <label for="editDate">Date:</label>
+        <input type="date" id="editDate" required />
+
+        <button type="submit" id="saveBtn">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
