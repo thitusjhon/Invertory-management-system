@@ -2,64 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inventory Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Motorcycle Parts Inventory</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  
   <header>
-    <h1>Inventory Ni Thitus</h1>
+    <h1>Motorcycle Parts Inventory</h1>
+    <button id="addBtn">+ Add Part</button>
   </header>
 
-  
-  <main>
-    <section class="table-section">
-      <div class="table-header">
-        <input type="text" id="searchBar" placeholder="Search product..." />
-        <button id="addBtn">Add Product</button>
-      </div>
+  <input type="text" id="searchBar" placeholder="Search by name..." />
 
-      <table id="inventoryTable">
-        <thead>
-          <tr>
-            <th onclick="sortTableByColumn(0)">Name <span class="sort-icon" data-col="0">↕</span></th>
-            <th onclick="sortTableByColumn(1)">Details <span class="sort-icon" data-col="1">↕</span></th>
-            <th onclick="sortTableByColumn(2)">Quantity <span class="sort-icon" data-col="2">↕</span></th>
-            <th onclick="sortTableByColumn(3)">Price <span class="sort-icon" data-col="3">↕</span></th>
-            <th onclick="sortTableByColumn(4)">Date <span class="sort-icon" data-col="4">↕</span></th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        </tbody>
-      </table>
-    </section>
-  </main>
+  <table id="inventoryTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-  <!-- MODAL na mahirap -->
-  <div id="editModal" class="modal">
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" id="closeBtn">&times;</span>
-      <h2 id="modalTitle">Add/Edit Product</h2>
-      <form id="editForm">
-        <label for="editName">Name:</label>
-        <input type="text" id="editName" required />
-
-        <label for="editDetails">Details:</label>
-        <input type="text" id="editDetails" required />
-
-        <label for="editQuantity">Quantity:</label>
-        <input type="number" id="editQuantity" min="1" required />
-
-        <label for="editPrice">Price (₱):</label>
-        <input type="number" id="editPrice" min="0" step="0.01" required />
-
-        <label for="editDate">Date:</label>
-        <input type="date" id="editDate" required />
-
+      <span id="closeModal" class="close">&times;</span>
+      <h2 id="modalTitle">Add Motorcycle Part</h2>
+      <form id="partForm">
+        <input type="text" id="name" placeholder="Part Name" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <input type="number" id="quantity" placeholder="Quantity" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <input type="date" id="date" required />
+        <input type="file" id="image" accept="image/*" />
+        <div id="imagePreview"></div>
         <button type="submit" id="saveBtn">Save</button>
       </form>
     </div>
